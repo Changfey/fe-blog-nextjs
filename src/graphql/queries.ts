@@ -34,20 +34,20 @@ const GET_INDIVIDUAL_POST = gql`
 					title
 					content
 					date
-					imgUrl{
-						data {
-							attributes {
-								url
-							}
-						}
-					}
-					videoUrl{
-						data {
-							attributes {
-								url
-							}
-						}
-					}	
+					# imgUrl{
+					# 	data {
+					# 		attributes {
+					# 			url
+					# 		}
+					# 	}
+					# }
+					# videoUrl{
+					# 	data {
+					# 		attributes {
+					# 			url
+					# 		}
+					# 	}
+					# }	
 				}
 			}
 		}

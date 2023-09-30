@@ -21,6 +21,7 @@ export default function Post({ post }) {
 			</div>
 		);
 	} catch (e) {
+		console.log("this errr", e);
 		return <div>Oops </div>;
 	}
 }
@@ -28,12 +29,14 @@ export default function Post({ post }) {
 export async function getStaticPaths() {
 	try {
 		const { data } = await client.query({ query: GET_ALL_SLUGS });
+		console.log("this data", data);
 
 		const paths = data.blogPosts.data.map((post) => ({
 			params: {
 				slug: post.attributes.urlSlug,
 			},
 		}));
+
 
 		return {
 			paths,
@@ -54,9 +57,11 @@ export async function getStaticProps({ params }) {
 			variables: { slugUrl: params.slug },
 		});
 
-		const attrs = data.blogPosts.data[0].attributes;
-		// const _html = await serialize(attrs.content);
 
+		const attrs = data.blogPosts.data[0].attributes;
+		console.log("-----",attrs);
+		// const _html = await serialize(attrs.content);
+		
 		return {
 			props: {
 				post: {
@@ -70,6 +75,7 @@ export async function getStaticProps({ params }) {
 					// video: `http://localhost:1337/${attrs.videoUrl.data[0].attributes.url}`,
 				},
 			},
+			
 		};
 	} catch (e) {
 		return {
