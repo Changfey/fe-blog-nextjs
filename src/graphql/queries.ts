@@ -33,13 +33,42 @@ const GET_INDIVIDUAL_POST = gql`
 				attributes {
 					title
 					content
+					date
+					imgUrl{
+						data {
+							attributes {
+								url
+							}
+						}
+					}
+					videoUrl{
+						data {
+							attributes {
+								url
+							}
+						}
+					}	
 				}
 			}
 		}
 	}
 `;
 
-export { GET_ALL_POSTS, GET_INDIVIDUAL_POST, GET_ALL_SLUGS };
+const GET_POST_BY_CATEGORY = gql`
+	query ($category: String!) {
+		blogPosts(filters: { category: { eq: $category } }) {
+			data {
+				attributes {
+					title,
+          			urlSlug,
+		  			description
+				}
+			}
+		}
+	}
+`;
+
+export { GET_ALL_POSTS, GET_INDIVIDUAL_POST, GET_ALL_SLUGS, GET_POST_BY_CATEGORY };
 
 export type Post = {
 	id: string;
@@ -48,5 +77,7 @@ export type Post = {
 		content: string;
 		urlSlug: string;
 		description: string;
+		date: string;
+		imgUrl: string;
 	}
 }

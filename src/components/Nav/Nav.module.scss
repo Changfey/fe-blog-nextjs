@@ -1,0 +1,22 @@
+.nav {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 60px;
+    .logo {
+        font-size: 40px;
+    }
+    .links {
+        display: flex;
+        gap: 100px;
+    }
+
+    .home, .about {
+        font-size: 30px;
+        &:hover {
+            color: rgba(13, 208, 13, 1);
+        }
+    }
+}
