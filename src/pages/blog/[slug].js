@@ -63,11 +63,11 @@ export async function getStaticProps({ params }) {
 					title: attrs.title,
 					content: attrs.content,
 					date: attrs.date,
-					url: `http://13.211.69.106:1337${attrs.imgUrl.data[0].attributes.url}`,
+					// url: `http://localhost:1337/${attrs.imgUrl.data[0].attributes.url}`,
 					// url2: `http://localhost:1337${attrs.imgUrl.data[1].attributes.url}`,
 					// url3: `http://localhost:1337${attrs.imgUrl.data[2].attributes.url}`,
 					// url4: `http://localhost:1337${attrs.imgUrl.data[3].attributes.url}`,
-					video: `http://13.211.69.106:1337${attrs.videoUrl.data[0].attributes.url}`,
+					// video: `http://localhost:1337/${attrs.videoUrl.data[0].attributes.url}`,
 				},
 			},
 		};

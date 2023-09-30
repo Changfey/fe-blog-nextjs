@@ -4,7 +4,7 @@ import { GET_POST_BY_CATEGORY, Post } from "../graphql/queries";
 import Link from "next/link";
 
 export const client = new ApolloClient({
-    uri: "http://13.211.69.106:1337/graphql",
+    uri: "http://3.27.181.46:1337/graphql",
     cache: new InMemoryCache(),
 });
 
@@ -67,6 +67,7 @@ export async function getStaticProps() {
 
         }
     } catch (error) {
+        console.log('error!!!!!', error)
         return {
             props: {
                 posts: []
